@@ -9,7 +9,10 @@ const app = express();
 const PORT = process.env.PORT || 5050;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://mern-gpt2-2-client.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 
 app.use("/api", chatRouter);
 app.use("/api", userRouter);
